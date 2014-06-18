@@ -1,20 +1,17 @@
 
-Objetivo
-===========
+== Objetivo ==
 
 Obter lista de IDH dos municípios de um determinado estado.
 
 
-Dados disponíveis
-===================
+== Dados disponíveis ==
 
 Lista de IDH dos municípios brasileiros
 
 http://www.pnud.org.br/atlas/ranking/Ranking-IDHM-Municipios-2010.aspx
 
 
-Passos
-========
+== Passos ==
 
 Baixar o html orignial (original.html)
 Edição manual pra deixar no html só as linhas com dados (idh.html)
@@ -23,8 +20,8 @@ Obter lista por estado (idh_por_estado.sh -> idh_sp.csv)
 Para saber a posição de um município em seu estado, basta ver em que linha o município está usando um editor de texto
 Obter lista limpa dos top 10 de um estado (top10.sh)
 
-Conclusões interessantes
-============
+
+== Conclusões interessantes ==
 
 1) Os top 10 no estado de SP:
 
