@@ -39,3 +39,10 @@ Obter lista limpa dos top 10 de um estado (top10.sh)
 2) O município de São Paulo está 14o lugar no raking de IDH do estado de SP.
 
 
+== Código utilizado ==
+
+Apenas 3 linhas de shell script, cada uma em um arquivo sh.
+
+Comandos (da linha de comando) utilizados: cat, head, grep, sed e cut
+
+
