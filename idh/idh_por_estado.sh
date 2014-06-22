@@ -2,5 +2,5 @@
 #Obtem lista por estado
 #Primeiro argumento: sigla do estado (ex: SP)
 
-cat idh.csv | grep $1
+grep $1 idh.csv
 
