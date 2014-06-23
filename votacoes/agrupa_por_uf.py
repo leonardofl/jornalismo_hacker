@@ -28,7 +28,6 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
         if not uf in votos:
             votos[uf] = {}
         dic_uf = votos[uf]
-        dic_uf = votos.get(uf, {})
         quantidade_acumulada = dic_uf.get(voto, 0)
         dic_uf[voto] = quantidade_acumulada + 1
 
@@ -41,7 +40,6 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
         abstencao = dic_uf.get(ABSTENCAO, 0)
         obstrucao = dic_uf.get(OBSTRUCAO, 0)
         print '%s \t%d \t%d \t%d \t\t%d' % (uf, sim, nao, abstencao, obstrucao)
-
     print '\n***********\n'
 
 

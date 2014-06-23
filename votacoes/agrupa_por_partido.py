@@ -28,7 +28,6 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
         if not partido in votos:
             votos[partido] = {}
         dic_partido = votos[partido]
-        dic_partido = votos.get(partido, {})
         quantidade_acumulada = dic_partido.get(voto, 0)
         dic_partido[voto] = quantidade_acumulada + 1
 
@@ -41,7 +40,6 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
         abstencao = dic_partido.get(ABSTENCAO, 0)
         obstrucao = dic_partido.get(OBSTRUCAO, 0)
         print '%s \t\t%d \t%d \t%d \t\t%d' % (partido, sim, nao, abstencao, obstrucao)
-
     print '\n***********\n'
 
 
