@@ -21,26 +21,26 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
     descricao_votacao = votacao_xml.get('ObjVotacao')
     print 'Votação:', descricao_votacao
     votos_xml = votacao_xml.find('votos')
-    votos = {} # { partido => { voto => quantidade } }
+    votos = {} # { uf => { voto => quantidade } }
     for deputado_xml in votos_xml.findall('Deputado'):
-        partido = deputado_xml.get('Partido')
+        uf = deputado_xml.get('UF')
         voto = deputado_xml.get('Voto')
-        if not partido in votos:
-            votos[partido] = {}
-        dic_partido = votos[partido]
-        dic_partido = votos.get(partido, {})
-        quantidade_acumulada = dic_partido.get(voto, 0)
-        dic_partido[voto] = quantidade_acumulada + 1
+        if not uf in votos:
+            votos[uf] = {}
+        dic_uf = votos[uf]
+        dic_uf = votos.get(uf, {})
+        quantidade_acumulada = dic_uf.get(voto, 0)
+        dic_uf[voto] = quantidade_acumulada + 1
 
     # imprime resumo agregado da votação
-    print '\nPartido \tSim \tNão \tAbstenção \tObstrução'
-    for partido in votos.keys():
-        dic_partido = votos[partido]
-        sim = dic_partido.get(SIM, 0)
-        nao = dic_partido.get(NAO, 0)
-        abstencao = dic_partido.get(ABSTENCAO, 0)
-        obstrucao = dic_partido.get(OBSTRUCAO, 0)
-        print '%s \t\t%d \t%d \t%d \t\t%d' % (partido, sim, nao, abstencao, obstrucao)
+    print '\nUF \tSim \tNão \tAbstenção \tObstrução'
+    for uf in votos.keys():
+        dic_uf = votos[uf]
+        sim = dic_uf.get(SIM, 0)
+        nao = dic_uf.get(NAO, 0)
+        abstencao = dic_uf.get(ABSTENCAO, 0)
+        obstrucao = dic_uf.get(OBSTRUCAO, 0)
+        print '%s \t%d \t%d \t%d \t\t%d' % (uf, sim, nao, abstencao, obstrucao)
 
     print '\n***********\n'
 
