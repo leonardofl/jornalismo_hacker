@@ -98,6 +98,7 @@ LUIZ PEDRO BOM|300.0
 JANDUHY CORDEIRO DE ALENCAR|300.0
 MARIA DE LOURDES DE SOUZA|300.0
 LUIZ PEDRO BOM|300.0
+-- que tal examinar as doações para um partido de sua escolha? ^^
 
 -- doações para o PSDC (único partido com apenas uma doação)
 sqlite> select NomeDoador, ValorReceita from receitas where SiglaPartido = 'PSDC';
@@ -141,18 +142,18 @@ RECURSOS DE OUTROS CANDIDATOS/COMITÊS
 Recursos de origens não identificadas
 
 -- valor de doações de pessoas jurídicas por partido
-sqlite> select SiglaPartido, sum(ValorReceita) as soma, SiglaPartido from receitas where TipoReceita like '%jurídicas%' group by SiglaPartido order by soma desc;
-PSDB|28751506.66|PSDB
-PT|12254300.25|PT
-PSB|4430000.0|PSB
-PPS|2090000.0|PPS
-PP|770000.0|PP
-PR|622240.63|PR
-PTB|550000.0|PTB
-PDT|500000.0|PDT
-PV|350000.0|PV
-PSDC|25000.0|PSDC
-PSOL|300.0|PSOL
+sqlite> select SiglaPartido, sum(ValorReceita) as soma from receitas where TipoReceita like '%jurídicas%' group by SiglaPartido order by soma desc;
+PSDB|28751506.66
+PT|12254300.25
+PSB|4430000.0
+PPS|2090000.0
+PP|770000.0
+PR|622240.63
+PTB|550000.0
+PDT|500000.0
+PV|350000.0
+PSDC|25000.0
+PSOL|300.0
 
 -- quantidade de doações de pessoas jurídicas por partido
 sqlite> select count(*) as count_receitas, SiglaPartido from receitas where TipoReceita like '%jurídicas%' group by SiglaPartido order by count_receitas desc;
