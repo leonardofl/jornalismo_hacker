@@ -1,2 +1,5 @@
-jornalismo_hacker
+Jornalismo Hacker
 =================
+
+Este repositório contém casos de uso de jornalismo hacker!
+
