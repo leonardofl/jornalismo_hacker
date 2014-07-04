@@ -20,6 +20,7 @@ PSOL
 -- maior doação realizada
 sqlite> select max(ValorReceita), NomeDoador, SiglaPartido from receitas;
 3000000.0|MINERAÇÕES BRASILEIRAS REUNIDAS S/A MBR|PSDB
+-- que tal estudar a relação entre essa empresa e o partido em questão?
 
 -- menor doação realizada
 sqlite> select min(ValorReceita), NomeDoador, SiglaPartido from receitas;
@@ -116,9 +117,9 @@ PR|DOAÇÃO ESTIMÁVEL REF. A 13.286.80 TON. DE PAPEL RENOVA SOFT NAT, SENDO R$ 
 PR|DOAÇÃO ESTIMÁVEL REFERENTE A 22.618 TONELADAS DE PAPEL EXTRA ALVURA BRA 180G, SENDO R$ 2.927.840 A TONELADA, COM CUSTO AVALIADO CONFORME NOTA FISCAL 11010 DO PRÓPRIO DOADOR.
 PR|DOAÇÃO ESTIMÁVEL REFERENTE A 9.151 TONELADAS DE PAPEL EXTRA ALVURA BRA, SENDO R$ 2.927.84 A TONELADA, COM CUSTO AVALIADO CONFORME NOTA FISCAL 11009 DO PRÓPRIO DOADOR.
 PR|DOAÇÃO ESTIMÁVEL REFERENTE A 24.948 TONELADAS DE PAPEL EXTRA ALVURA BRA 75G 66X96 FL.500 C25, SENDO R$ 2.927.840 A TONELADA, COM CUSTO AVALIADO CONFORME NOTA FISCAL 12035 DO PRÓPRIO DOADOR.
-
 -- receita só é descrita para o PR
 -- parece que o PR gosta de papel!
+
 -- vamos examinar mais essas receitas de papel...
 sqlite> select SiglaPartido, ValorReceita, NomeDoador from receitas where DescricaoReceita <> '';
 PR|75500.06|M D PAPÉIS LTDA.
@@ -191,32 +192,32 @@ sqlite> select count(*) as count_receitas, SiglaPartido from receitas where Tipo
 1|PV
 
 -- quantas doações existem
-select count(*) from receitas;
+sqlite> select count(*) from receitas;
 347
 
 -- quantos doadores existem
-select count(distinct CPFCNPJDoador) from receitas;
+sqlite> select count(distinct CPFCNPJDoador) from receitas;
 162
 
 -- CPF/CNPJ dos doadores que fizeram doações pra mais de um partido
-  select CPFCNPJDoador from (
-    select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
-  ) group by CPFCNPJDoador having count(SiglaPartido) > 1;
+sqlite>   select CPFCNPJDoador from (
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+          ) group by CPFCNPJDoador having count(SiglaPartido) > 1;
 
 -- quantos doadores doaram pra mais de um partido
-select count(*) from (
-  select CPFCNPJDoador from (
-    select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
-  ) group by CPFCNPJDoador having count(SiglaPartido) > 1
-)
+sqlite> select count(*) from (
+          select CPFCNPJDoador from (
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+          ) group by CPFCNPJDoador having count(SiglaPartido) > 1
+        )
 25
 
 -- doadores que doaram pra mais de um partido (juntos dos partidos que receberam a doação)
-select distinct SiglaPartido, NomeDoador from receitas where CPFCNPJDoador in (
-  select CPFCNPJDoador from (
-    select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
-  ) group by CPFCNPJDoador having count(SiglaPartido) > 1
-) order by NomeDoador;
+sqlite> select distinct SiglaPartido, NomeDoador from receitas where CPFCNPJDoador in (
+          select CPFCNPJDoador from (
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+          ) group by CPFCNPJDoador having count(SiglaPartido) > 1
+        ) order by NomeDoador;
 PPS|ARCOS DOURADOS COMERCIO DE ALIMENTOS LTDA
 PSDB|ARCOS DOURADOS COMERCIO DE ALIMENTOS LTDA.
 PSB|BANCO ALVORADA S.A
