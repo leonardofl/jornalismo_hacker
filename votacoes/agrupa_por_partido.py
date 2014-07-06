@@ -3,13 +3,14 @@
 
 from __future__ import unicode_literals
 import xml.etree.ElementTree as etree
+import sys
 
 SIM = 'Sim'
 NAO = 'Não'
 ABSTENCAO = 'Abstenção'
 OBSTRUCAO = 'Obstrução'
 
-NOME_DO_ARQUIVO_COM_VOTACOES = 'votacoes.xml'
+NOME_DO_ARQUIVO_COM_VOTACOES = sys.argv[1]
 arquivo_votacoes = open(NOME_DO_ARQUIVO_COM_VOTACOES)
 conteudo = arquivo_votacoes.read()
 xml = etree.fromstring(conteudo)
