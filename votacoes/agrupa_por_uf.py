@@ -24,8 +24,8 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
     votos_xml = votacao_xml.find('votos')
     votos = {} # { uf => { voto => quantidade } }
     for deputado_xml in votos_xml.findall('Deputado'):
-        uf = deputado_xml.get('UF')
-        voto = deputado_xml.get('Voto')
+        uf = deputado_xml.get('UF').strip()
+        voto = deputado_xml.get('Voto').strip()
         if not uf in votos:
             votos[uf] = {}
         dic_uf = votos[uf]

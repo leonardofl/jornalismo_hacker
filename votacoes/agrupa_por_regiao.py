@@ -60,8 +60,8 @@ for votacao_xml in votacoes_xml.findall('Votacao'):
     votos_xml = votacao_xml.find('votos')
     votos = {} # { região => { voto => quantidade } }
     for deputado_xml in votos_xml.findall('Deputado'):
-        uf = deputado_xml.get('UF')
-        voto = deputado_xml.get('Voto')
+        uf = deputado_xml.get('UF').strip()
+        voto = deputado_xml.get('Voto').strip()
         regiao = REGIAO_POR_UF[uf] 
         if not regiao in votos:
             votos[regiao] = {}
