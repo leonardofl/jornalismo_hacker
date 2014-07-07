@@ -1,6 +1,7 @@
 
 Análise do IDH dos municípios brasileiros
 
+
 == Objetivos ==
 
 1) Obter lista de IDH dos municípios de um determinado estado.
@@ -10,6 +11,11 @@ Análise do IDH dos municípios brasileiros
 3) Obter lista dos piores de cada estado.
 
 
+== Método utilizado ==
+
+Uso da linha de comando para analisar arquivos CSV.
+
+
 == Dados disponíveis ==
 
 Lista de IDH dos municípios brasileiros
@@ -17,6 +23,7 @@ Lista de IDH dos municípios brasileiros
 http://www.pnud.org.br/atlas/ranking/Ranking-IDHM-Municipios-2010.aspx
 
 Antes de prosseguir, pense o que você faria com esses dados para alcançar os objetivos propostos.
+
 
 == Passos realizados ==
 
@@ -50,6 +57,7 @@ Obter piores de cada estado
 Comando executado: ./piores.sh
 Arquivo gerado: piores.txt
 
+
 == Arquivos do repositório ==
 
 Para ver os resultados gerados, explore os arquivos .txt.
@@ -58,11 +66,13 @@ Para ver os comandos utilizados, explore os arquivos .sh.
 
 Você pode também executar os scripts (arquivos .sh) passando outros argumentos (ex: ./idh_por_estado.sh 'MA')!
 
+
 == Código utilizado ==
 
 Apenas 5 linhas de shell script, cada uma em um arquivo sh.
 
 Comandos (da linha de comando) utilizados: cat, head, grep, sed, cut e for.
+
 
 == Observações ==
 
