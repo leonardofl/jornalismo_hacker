@@ -58,6 +58,14 @@ No lugar de "agrupa_por_partido.py" você pode especificar um dos outros program
 
 No lugar de "fundo_social_pre_sal.xml" você pode especificar outro arquivo XML de votação que siga o mesmo formato.
 
+Você pode também conferir o resultado de cada programa na pasta "saidas" deste repositório.
+
+== Questão jornalística ==
+
+Com base nos resultados obtidos, pode-se dizer que no caso das votações sobre o código florestal
+e do fundo social do pré sal há alguma influência da região do deputado em sua decisão de voto?
+Ou a decisão de voto é predominantemente tomada de acordo com o partido do deputado?
+
 == Desafio ==
 
 Baixar os dados de votação de alguma outra proposição e executar os três programas python para essa nova proposição.

@@ -1,0 +1,55 @@
+Votação: REQUERIMENTO DE RETIRADA DE PAUTA
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	0 	28 	1 		32
+Sul         	2 	28 	1 		5
+CentroOeste 	0 	20 	1 		2
+Sudeste     	3 	60 	2 		34
+Norte       	0 	41 	2 		17
+
+***********
+
+Votação: EMENDA SUBSTITUTIVA GLOBAL DE PLENÁRIO Nº 186
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	104 	13 	0 		0
+Sul         	49 	7 	0 		0
+CentroOeste 	34 	4 	0 		0
+Sudeste     	138 	27 	1 		0
+Norte       	85 	12 	0 		1
+
+***********
+
+Votação: DVS - PMDB - EMENDA Nº 164
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	56 	52 	1 		0
+Sul         	39 	15 	0 		0
+CentroOeste 	24 	15 	0 		0
+Sudeste     	85 	75 	1 		0
+Norte       	69 	25 	0 		1
+
+***********
+
+Votação: DVS - PT - § 7º DO ART. 62, P/ FINS DE SUA MANUTENÇÃO
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	47 	47 	0 		0
+Sul         	18 	29 	0 		0
+CentroOeste 	6 	28 	0 		0
+Sudeste     	79 	62 	3 		0
+Norte       	34 	62 	0 		0
+
+***********
+
+Votação: SUBSTITUTIVO DO SF - DISPOSITIVOS COM PARECER PELA REJEIÇÃO
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	44 	64 	0 		0
+Sul         	19 	36 	0 		0
+CentroOeste 	8 	30 	0 		0
+Sudeste     	85 	74 	2 		0
+Norte       	28 	70 	0 		0
+
+***********
+

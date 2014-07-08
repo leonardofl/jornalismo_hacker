@@ -1,0 +1,66 @@
+Votação: REQUERIMENTO DE URGÊNCIA
+
+UF 	Sim 	Não 	Abstenção 	Obstrução
+BA 	16 	7 	0 		1
+DF 	5 	1 	0 		0
+PR 	14 	5 	0 		0
+RR 	4 	2 	0 		0
+RS 	15 	4 	0 		0
+PB 	5 	2 	0 		0
+TO 	5 	1 	0 		0
+PA 	10 	4 	0 		0
+PE 	12 	5 	0 		0
+RN 	3 	2 	0 		0
+RO 	7 	0 	0 		0
+RJ 	29 	6 	0 		0
+AC 	6 	0 	0 		0
+AM 	6 	0 	0 		0
+AL 	7 	0 	0 		0
+CE 	17 	2 	0 		0
+AP 	7 	1 	0 		0
+GO 	8 	3 	0 		0
+ES 	6 	2 	0 		0
+MG 	34 	8 	0 		0
+PI 	6 	1 	0 		0
+MA 	9 	3 	0 		0
+SP 	30 	20 	0 		0
+MT 	5 	1 	0 		0
+MS 	8 	0 	0 		0
+SC 	10 	1 	0 		0
+SE 	4 	3 	0 		0
+
+***********
+
+Votação: ARTS 1 A 46, 47 EX INC V, ARTS 48 A 63 C/ PARECER APROV
+
+UF 	Sim 	Não 	Abstenção 	Obstrução
+BA 	18 	5 	0 		0
+DF 	3 	1 	0 		0
+PR 	13 	7 	0 		0
+RR 	2 	2 	0 		0
+RS 	9 	2 	0 		0
+PB 	5 	1 	0 		1
+TO 	3 	1 	0 		0
+PA 	4 	4 	0 		0
+PE 	10 	3 	0 		0
+RN 	2 	1 	0 		0
+RO 	5 	0 	0 		0
+RJ 	21 	6 	0 		0
+AC 	2 	0 	0 		0
+AM 	4 	0 	0 		0
+AL 	3 	0 	0 		0
+CE 	9 	1 	0 		0
+AP 	3 	1 	0 		0
+GO 	6 	4 	0 		0
+ES 	4 	1 	0 		1
+MG 	24 	8 	0 		0
+PI 	5 	2 	0 		0
+MA 	5 	2 	0 		0
+SP 	26 	8 	1 		1
+MT 	3 	2 	0 		0
+MS 	5 	0 	0 		0
+SC 	7 	2 	0 		0
+SE 	3 	2 	1 		0
+
+***********
+

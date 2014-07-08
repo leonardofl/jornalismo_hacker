@@ -1,0 +1,22 @@
+Votação: REQUERIMENTO DE URGÊNCIA
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	67 	20 	0 		1
+Sul         	29 	9 	0 		0
+CentroOeste 	26 	5 	0 		0
+Sudeste     	99 	36 	0 		0
+Norte       	67 	14 	0 		0
+
+***********
+
+Votação: ARTS 1 A 46, 47 EX INC V, ARTS 48 A 63 C/ PARECER APROV
+
+Região     	Sim 	Não 	Abstenção 	Obstrução
+Nordeste    	53 	14 	1 		1
+Sul         	22 	9 	0 		0
+CentroOeste 	17 	7 	0 		0
+Sudeste     	75 	23 	1 		2
+Norte       	37 	13 	0 		0
+
+***********
+

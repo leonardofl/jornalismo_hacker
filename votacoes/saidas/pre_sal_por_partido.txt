@@ -1,0 +1,47 @@
+Votação: REQUERIMENTO DE URGÊNCIA
+
+Partido 	Sim 	Não 	Abstenção 	Obstrução
+PR 		27 	0 	0 		1
+PSDB 		0 	45 	0 		0
+PP 		27 	1 	0 		0
+PV 		9 	0 	0 		0
+PT 		56 	0 	0 		0
+PRB 		7 	0 	0 		0
+PSB 		18 	0 	0 		0
+PSC 		12 	0 	0 		0
+PDT 		15 	0 	0 		0
+PTC 		1 	2 	0 		0
+PTB 		16 	0 	0 		0
+PCdoB 		9 	0 	0 		0
+PPS 		11 	0 	0 		0
+DEM 		8 	34 	0 		0
+PSOL 		3 	0 	0 		0
+PMN 		3 	0 	0 		0
+PMDB 		66 	2 	0 		0
+
+***********
+
+Votação: ARTS 1 A 46, 47 EX INC V, ARTS 48 A 63 C/ PARECER APROV
+
+Partido 	Sim 	Não 	Abstenção 	Obstrução
+PR 		14 	7 	0 		0
+PSDB 		2 	34 	0 		0
+PP 		14 	0 	0 		0
+PV 		7 	1 	0 		0
+PT 		54 	0 	0 		0
+PRB 		5 	0 	0 		0
+PSB 		16 	1 	0 		1
+PSC 		11 	0 	0 		0
+PDT 		13 	1 	1 		0
+PTC 		0 	0 	0 		1
+PTB 		12 	0 	0 		0
+PCdoB 		9 	0 	0 		0
+PPS 		3 	1 	0 		0
+DEM 		2 	20 	1 		1
+PHS 		2 	0 	0 		0
+PSOL 		2 	0 	0 		0
+PMN 		1 	0 	0 		0
+PMDB 		37 	1 	0 		0
+
+***********
+
