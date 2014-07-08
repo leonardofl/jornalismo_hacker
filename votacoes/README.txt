@@ -26,11 +26,9 @@ http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ObterProposicao?tipo=PL&nu
 
 == Pontos importantes ==
 
-Considerando que a Câmara possui mais de 500 deputados, 
-fazer esse tipo de agregação de forma manual seria muito dispendioso, moroso e propenso a erros.
+Considerando que a Câmara possui mais de 500 deputados, fazer esse tipo de agregação de forma manual seria muito dispendioso, moroso e propenso a erros.
 
-Mas o maior ganho ao automatizar a tarefa, é que uma vez que o programa está pronto,
-podemos realizar o mesmo tipo agregação para qualquer votação que seja disponibilizada no mesmo formato*!
+Mas o maior ganho ao automatizar a tarefa, é que uma vez que o programa está pronto, podemos realizar o mesmo tipo agregação para qualquer votação que seja disponibilizada no mesmo formato*!
 * i.e. tenha a mesma estrutura
 
 Ou seja, se acharmos o XML da votação de uma outra proposição, não precisamos criar um novo programa, o trabalho já está feito!
@@ -41,8 +39,7 @@ Um arquivo XML possui uma estrutura complexa, podendo apresentar dados organizad
 
 Embora possua um poder de representação mais rico que planilhas, o XML é também mais complicado de ser processado.
 
-Por isso nesse caso não bastam simples comandos da linha de comando, 
-e por isso estamos usando uma linguagem de programação de propósito geral e bem poderosa, a linguagem Python.
+Por isso nesse caso não bastam simples comandos da linha de comando, e por isso estamos usando uma linguagem de programação de propósito geral e bem poderosa, a linguagem Python.
 
 Links pra consultar:
 http://pt.wikipedia.org/wiki/XML
@@ -62,8 +59,7 @@ Você pode também conferir o resultado de cada programa na pasta "saidas" deste
 
 == Questão jornalística ==
 
-Com base nos resultados obtidos, pode-se dizer que no caso das votações sobre o código florestal
-e do fundo social do pré sal há alguma influência da região do deputado em sua decisão de voto?
+Com base nos resultados obtidos, pode-se dizer que no caso das votações sobre o código florestal e do fundo social do pré sal há alguma influência da região do deputado em sua decisão de voto?
 Ou a decisão de voto é predominantemente tomada de acordo com o partido do deputado?
 
 == Desafio ==
