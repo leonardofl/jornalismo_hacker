@@ -74,6 +74,8 @@ Para saber quais proposições foram votadas em plenário, usar a URL:
 http://www.camara.gov.br/SitCamaraWS/Proposicoes.asmx/ListarProposicoesVotadasEmPlenario?ano=2013&tipo=PL
 (o tipo e ano podem ser variados)
 
+Sugestão de proposição interessante: MPV621/2013, sobre o programa "Mais Médicos".
+
 Tipo de uma proposição é PL, PLC, PEC, MPV, etc...
 
 Obs: uma proposição pode ter várias votações (diversas emendas, etc.)
