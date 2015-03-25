@@ -4,7 +4,7 @@ sqlite> select count(*) from receitas;
 347
 
 -- partidos existentes na base de dados
-sqlite> select distinct SiglaPartido from receitas; 
+sqlite> select distinct SiglaPartido from receitas;
 PPS
 PDT
 PP
@@ -201,13 +201,13 @@ sqlite> select count(distinct CPFCNPJDoador) from receitas;
 
 -- CPF/CNPJ dos doadores que fizeram doações pra mais de um partido
 sqlite>   select CPFCNPJDoador from (
-            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador
           ) group by CPFCNPJDoador having count(SiglaPartido) > 1;
 
 -- quantos doadores doaram pra mais de um partido
 sqlite> select count(*) from (
           select CPFCNPJDoador from (
-            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador
           ) group by CPFCNPJDoador having count(SiglaPartido) > 1
         )
 25
@@ -215,7 +215,7 @@ sqlite> select count(*) from (
 -- doadores que doaram pra mais de um partido (juntos dos partidos que receberam a doação)
 sqlite> select distinct SiglaPartido, NomeDoador from receitas where CPFCNPJDoador in (
           select CPFCNPJDoador from (
-            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador 
+            select SiglaPartido, CPFCNPJDoador from receitas group by SiglaPartido, CPFCNPJDoador
           ) group by CPFCNPJDoador having count(SiglaPartido) > 1
         ) order by NomeDoador;
 PPS|ARCOS DOURADOS COMERCIO DE ALIMENTOS LTDA
@@ -286,5 +286,11 @@ PSDB|RECOFARMA INDUSTRIA DO AMAZONAS LTDA.
 PPS|ULTRA FERTIL S/A
 PSDB|ULTRAFERTIL S/A
 
+-- mostra as maiores doações feitas ao PT
+SELECT SiglaPartido, NomeDoador, ValorReceita FROM receitas WHERE SiglaPartido="PT" AND ValorReceita=(select max(ValorReceita) from receitas where SiglaPartido='PT');
 
+-- mostra partidos que receberam mais de 1000000
+SELECT SiglaPartido, Total FROM (SELECT SiglaPartido, SUM(ValorReceita) as Total FROM receitas GROUP BY SiglaPartido) WHERE Total>=1000000 ORDER BY Total desc;
 
+-- mostra partidos que receberam mais de 1000000
+SELECT SiglaPartido, SUM(ValorReceita) as Total FROM receitas GROUP BY Siglapartido HAVING total>=1000000 ORDER BY Total desc;
