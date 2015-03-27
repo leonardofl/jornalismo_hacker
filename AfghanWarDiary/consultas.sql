@@ -31,3 +31,6 @@ select friendly_kia, enemy_kia, civilian_kia, host_nation_kia, enemy_kia + frien
 
 -- total de mortes nas 10 ações com mais mortes, por tipo de morte
 select sum(friendly_kia), sum(enemy_kia), sum(civilian_kia), sum(host_nation_kia), sum(total) from (select friendly_kia, enemy_kia, civilian_kia, host_nation_kia, enemy_kia + friendly_kia + civilian_kia + host_nation_kia as total from diary order by total desc limit 10);
+
+-- história da operação com mais mortes
+select summary from diary where enemy_kia = 181;
