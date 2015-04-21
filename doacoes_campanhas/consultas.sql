@@ -294,3 +294,9 @@ SELECT SiglaPartido, Total FROM (SELECT SiglaPartido, SUM(ValorReceita) as Total
 
 -- mostra partidos que receberam mais de 1000000
 SELECT SiglaPartido, SUM(ValorReceita) as Total FROM receitas GROUP BY Siglapartido HAVING total>=1000000 ORDER BY Total desc;
+
+
+
+-- mostra as maiores doações de cada estado (usando só sp e mg)
+SELECT * FROM (SELECT SiglaPartido, ValorReceita, "sp" as estado FROM receitas_sp ORDER BY ValorReceita desc LIMIT 3) UNION SELECT * FROM (SELECT SiglaPartido, ValorReceita, "mg" as estado FROM receitas_mg ORDER BY ValorReceita desc LIMIT 3) ORDER BY estado, ValorReceita DESC;
+
