@@ -300,3 +300,60 @@ SELECT SiglaPartido, SUM(ValorReceita) as Total FROM receitas GROUP BY Siglapart
 -- mostra as maiores doações de cada estado (usando só sp e mg)
 SELECT * FROM (SELECT SiglaPartido, ValorReceita, "sp" as estado FROM receitas_sp ORDER BY ValorReceita desc LIMIT 3) UNION SELECT * FROM (SELECT SiglaPartido, ValorReceita, "mg" as estado FROM receitas_mg ORDER BY ValorReceita desc LIMIT 3) ORDER BY estado, ValorReceita DESC;
 
+
+
+
+-- quantos por cento dos doares doam pra mais de um partido?
+
+-- total doadores
+select COUNT (distinct cpfcnpjdoador) from receitas_sp;
+162
+
+-- doadores que doaram pra mais de um partido
+select count (*) from ( select cpfcnpjdoador, count(distinct siglapartido) as qtd_partidos from receitas_SP group by cpfcnpjdoador having qtd_partidos >1 );
+25
+
+-- 15% dos doadores doaram pra mais de um partido
+
+
+
+-- quantos por cento dos doares pessoa jurídica doam pra mais de um partido?
+
+-- doações de pessoas jurídicas
+sqlite> select COUNT (distinct cpfcnpjdoador) from receitas_sp where TipoReceita like "%jurídicas";
+119
+
+-- doadores pessoas jurídicas que doam pra mais de um partido
+select count (*) from ( select cpfcnpjdoador, count(distinct siglapartido) as qtd_partidos from receitas_SP where TipoReceita like "%jurídicas" group by cpfcnpjdoador having qtd_partidos >1 );
+25
+
+-- 21% dos doadores pessoas jurídicas doam pra mais de um partido
+
+
+
+-- e dentre os maiores doadores? quantos doam pra mais de um partido?
+
+-- quantas doações cada doador fez
+select cpfcnpjdoador, count(distinct siglapartido) as qtd_partidos from receitas_SP group by cpfcnpjdoador;
+
+-- transforma consulta anterior numa view
+create temp view qtdDoacoes as select cpfcnpjdoador, count(distinct siglapartido) as qtd_partidos from receitas_SP group by cpfcnpjdoador;
+
+-- cria view dos dez maiores doadores
+create temp view dez as select cpfcnpjdoador from receitas_sp order by ValorReceita desc limit 10;
+
+-- vê quantas doações os dez maiores doadores fizeram
+select * from qtdDoacoes where qtdDoacoes.cpfcnpjdoador in (select cpfcnpjdoador from dez);
+01340937000179|3
+02476026000136|2
+12101096000163|1
+33412792000160|2
+33417445000120|1
+56993900000131|1
+59941682000180|1
+61649810000168|1
+
+
+
+
+
