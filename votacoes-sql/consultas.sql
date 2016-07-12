@@ -8,7 +8,7 @@ SELECT * FROM votacoes;
 SELECT count(*) FROM votacoes;
 
 -- quais foram as votações (pra uma proposição podemos ter 1 ou mais votações)
-SELECT distinct votacao FROM votacoes;
+SELECT distinct votacao, proposicao FROM votacoes;
 
 -- vamos estudar uma votação em específico
 SELECT * FROM votacoes WHERE votacao = "2290";
@@ -62,5 +62,29 @@ SELECT partido, voto, count(*) as qtd FROM votacoes WHERE votacao = "2290" GROUP
 SELECT regiao, voto, count(*) as qtd FROM votacoes WHERE votacao = "2290" GROUP BY regiao, voto ORDER BY regiao, qtd;
 
 -- se quisermos ver de uma vez a distribuição de votos por região de todas as votações de nossa proposição analisada
-SELECT votacao, regiao, voto, count(*) as qtd FROM votacoes GROUP BY votacao, regiao, voto ORDER BY votacao, regiao, qtd;
+SELECT votacao, regiao, voto, count(*) as qtd FROM votacoes WHERE proposicao = "PL 1876/1999" GROUP BY votacao, regiao, voto ORDER BY votacao, regiao, qtd;
+
+-- para visualizar melhor podemos fazer uns gráficos
+
+--------------------------------------------
+-- analisando agora a emenda 24 dp PL 7/2010 
+-- (obriga a União a compensar os estados e municípios produtores pelas perdas na arrecadação de royalties)
+
+-- distribuição de votos
+SELECT voto, count(*) as qtd FROM votacoes WHERE votacao = "606" GROUP BY voto;
+
+-- distribuição por UF
+SELECT uf, voto, count(*) as qtd FROM votacoes WHERE votacao = "606" GROUP BY uf, voto ORDER BY uf;
+-- ES e RJ votarão não! Não esperado.
+
+-- Vamos ver os partidos do ES e do RJ
+SELECT uf, partido as qtd FROM votacoes WHERE votacao = "606" and (uf = "RJ" OR uf = "ES") ORDER BY uf;
+
+-- Vamos ver agora a distribuição de votos só desses partidos
+SELECT partido, voto, count(*) as qtd FROM votacoes WHERE votacao = "2290" and partido in ("PSB", "PR", "PMDB", "PRB", "PP") GROUP BY partido, voto ORDER BY partido, qtd;
+
+
+
+
+
 
