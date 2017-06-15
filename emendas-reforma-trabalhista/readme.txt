@@ -23,11 +23,11 @@ Ferrou
 Obter nomes dos emendadores: emendadores.txt 
 Obtido no braço (copiando de http://www.camara.gov.br/proposicoesWeb/prop_emendas?idProposicao=2122076&subst=0):
 
-./look-id.sh > emendadores-com-id.csv
+./look-id.sh >  emendadores-com-ids.txt
 
-emendadores-com-id.csv possui os nomes dos emendadores e os ID do emendador na tabela de doações eleitorais (segunda coluna). Utilizaremos esse ID para encontrar as doações em http://agencia.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_contas_final_2014.zip (link inválido, tem que descubrir onde está o arquivo. Eu já o de 2016 aqui: http://agencia.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_contas_final_2016.zip).
+emendadores-com-ids.txt possui os nomes dos emendadores e os ID do emendador na tabela de doações eleitorais (segunda coluna). Utilizaremos esse ID para encontrar as doações em http://agencia.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_contas_final_2014.zip (link inválido, tem que descubrir onde está o arquivo. Eu já o de 2016 aqui: http://agencia.tse.jus.br/estatistica/sead/odsele/prestacao_contas/prestacao_contas_final_2016.zip).
 
-MAS... o arquivo emendadores-com-id.csv procura deixar claro nomes de emendadores para os quais não foi encontrado candidato na tabela do TSE, ou nome que bateu com mais de um candidato. Cabe agora aqui uma aferição manual.
+MAS... o arquivo emendadores-com-ids.txt procura deixar claro nomes de emendadores para os quais não foi encontrado candidato na tabela do TSE, ou nome que bateu com mais de um candidato. Cabe agora aqui uma aferição manual.
 
 
 
