@@ -29,7 +29,16 @@ emendadores-com-ids.txt possui os nomes dos emendadores e os ID do emendador na 
 
 MAS... o arquivo emendadores-com-ids.txt procura deixar claro nomes de emendadores para os quais não foi encontrado candidato na tabela do TSE, ou nome que bateu com mais de um candidato. Cabe agora aqui uma aferição manual.
 
+Próximo passo: 
+cp emendadores-com-ids.txt emendadores-com-ids-desambiguizado.txt
+Varrer o arquivo emendadores-com-ids-desambiguizado.txt e:
+1) Para emendadores sem registro de candidato, procurar o candidato correspondente no arquivo candidatos2014.csv. Pode ser que ele não tenha sido encontrado pois o candidato está apenas com o sobre-nome, ou o nome esteja com acentuação diferente do site das emendas.
+2) Para emendadores com mais de um registro de candidato encontrado, desambiguizar. Para isso, conferir UF e partido na página das emendas. Lembrando que o deputado pode ter trocado de partido.
+ 
+Não consegui achar o emendador Paulo Pereira da Silva na lista de candidatos. Suplente talvez?
 
+Abre emendadores-com-ids-desambiguizado.txt no gedit, faz replace de " > *\n" por ";" e salva como emendadores-com-ids-desambiguizados.csv.
+Coloca o header: "nome-emendador;uf-candidato;id-candidato;nome-candidato;partido-candidato".
 
 
 
