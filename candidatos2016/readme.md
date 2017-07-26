@@ -10,4 +10,4 @@ Tabelas:
 
 Exemplo de coisa que dá pra fazer com esses dados: https://infogr.am/open_data_day____mulheres_nas_eleicoes_2016
 
-Base candidatos2016.sqlite (~0,5GB): https://www.dropbox.com/s/v3d084svni2c106/candidatos2016.sqlite?dl=0
+Base candidatos2016.sqlite (~0,5GB): https://drive.google.com/open?id=0B1JCC5LWFZb1T1Bsc0xuY1c2d00

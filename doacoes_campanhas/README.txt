@@ -28,4 +28,7 @@ O arquivo preparacao.sh mostra como fizemos a conversão do arquivo CSV para o b
 O arquivo consultas.sql mostra exemplos de diversos comandos SQL 
 que respondem a interessantes questões jornalísticas em um processo investigativo.
 
+Bases de dados:
+DoacoesPartidos2014SP.sqlite: https://drive.google.com/open?id=0B1JCC5LWFZb1dkZNTWxDZ1JtUVU
+ReceitasPartidos2010.sqlite: https://drive.google.com/open?id=0B1JCC5LWFZb1aVhvRWhvNXZVcG8
 
