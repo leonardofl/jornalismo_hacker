@@ -57,7 +57,7 @@ select p.nome_orgao, count(*) as qtd_indeferimentos
 from atendimentos a, pedidos p 
 where a.cd_pedido = p.cd_pedido and cd_status_atendimento_pedido in (4, 36, 19, 32, 42)
 group by p.cd_orgao
-order by qtd_indeferimentos desc;
+order by qtd_indeferimentos desc limit 10;
 -- "SF - Secretaria Municipal da Fazenda","197"
 -- "SMS - Secretaria Municipal da Saúde","149"
 -- "SMT - Secretaria Municipal de Mobilidade e Transportes","117"
