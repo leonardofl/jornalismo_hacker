@@ -1,0 +1,105 @@
+
+"Em tramitação"
+
+O pedido de informação foi registrado pelo munícipe e aguarda que a pasta pratique uma dentre três ações: responder em até 20 dias, prorrogar por mais dez dias além dos 20 iniciais ou utilizar a funcionalidade “encaminhar” (esta funcionalidade não está disponível nas fases recursais, bem como não será possível encaminhar o pedido para outra pasta após ter inserido a resposta ou prorrogado o prazo). Artigo 18 e artigo 19 do Decreto.
+
+
+“Atendido”
+
+Pedido de informação atendido nos seus exatos termos pela pasta.
+
+
+“Prazo Prorrogado”
+	
+Pedido de informação em tramitação, cujo prazo foi prorrogado por mais 10 dias e justificado ao cidadão. Artigo 19 do Decreto.
+
+
+“Pedido Indeferido”
+	
+Pedido recusado e justificado com a indicação das hipóteses de indeferimento.
+
+
+“1ª instância em tramitação”
+
+Recurso registrado pelo cidadão que tramita em 1ª instância que será analisado pela autoridade máxima da pasta. O prazo de atendimento é de 05 dias. Artigo 24 do Decreto.
+
+
+“1ª instância deferida”
+	
+Recurso atendido em seus termos pela pasta.
+
+
+“1ª instância indeferida”
+
+Recurso negado e justificado com a indicação das hipóteses de indeferimento.
+
+
+“2ª instância em tramitação”
+	
+Pedido de informação que tramita em 2ª instância e será apreciado inicialmente pela CGM. Portanto, a CGM, após analisar  todo o contexto das informações veiculadas pelas pastas entender que há necessidade de complementação de informações, solicitará esclarecimentos às pastas de origem. Após a devolutiva, se o recurso for provido pela CGM, esta sinalizará às pastas de origem para que respondam ao pedido via sistema.
+
+
+“2ª instância encaminhada para o órgão para complemento”
+
+Pedido de informação que tramita em 2ª instância na qual a CGM solicitou complementação de informações à pasta de origem. A pasta tem 05 dias para responder o complemento.
+
+
+2ª instância respondida para CGM
+
+Pedido de informação que tramita em 2ª instância no qual a pasta responde à solicitação de complementação de informações requeridas pela CGM. A CGM tem o prazo de 03 dias para análise do complemento.
+
+
+“2ª instância encaminhada para o órgão para resposta”
+
+Pedido de informação reportado pela CGM aos cuidados da pasta de origem para que esta veicule a resposta no sistema. A pasta tem 05 dias para registrar a resposta após análise da CGM.
+
+
+“2ª instância deferida”
+
+Recurso atendido nos termos pela pasta de origem.
+
+
+“2ª instância indeferida”
+	
+Recurso negado e justificado ao munícipe. A CGM indefere via sistema
+
+
+"3ª instância em tramitação"
+
+Pedido de informação que tramita em 3ª instância (artigo 26 do Decreto) e será apreciado pela Comissão Municipal de Acesso à Informação (CMAI). A Comissão é composta por 07 secretarias e 01 representante do gabinete do prefeito, conforme os termos do artigo 52 do Decreto.
+
+
+“3ª instância deferida”
+
+Recurso atendido nos seus termos pela Comissão Municipal de Acesso à Informação.
+
+
+“3ª instância indeferida”
+
+Recurso negado e justificado ao munícipe pela CMAI.
+
+
+“Congelado”
+
+Caracterização de que houve redirecionamento do pedido de informação de uma pasta para outra. Portanto, o pedido ficará “estacionado” dentro do sistema para que a Divisão de Transparência Passiva/CGM DEFIRA ou INDEFIRA a transferência para outra pasta via sistema.
+
+
+Encaminhamento Deferido
+
+Após consulta ao órgão sugerido para resposta do pedido de acesso e aceite do mesmo, a Divisão de Transparência Passiva DEFERE a transferência do pedido via sistema para o órgão demandado.  
+
+
+Encaminhamento Indeferido
+
+Após consulta ao órgão sugerido para resposta do pedido de acesso e a NEGATIVA de atendimento mediante justificativa do mesmo, a Divisão de Transparência Passiva INDEFERE a transferência do pedido, via sistema, para o órgão indicado pela pasta inicial.
+
+
+“Recurso de Ofício”
+
+O pedido de informação não respondido pela pasta de origem, no prazo sistêmico (tanto na fase inicial de tramitação quanto na fase recursal de 1ª instância e após o prazo de recurso do cidadão) é encaminhado automaticamente, via sistema, para análise da CGM em recurso de 2ª instância.
+
+
+“Finalizado”
+
+O protocolo do pedido de informação é reportado automaticamente, via sistema, para este status quando o munícipe se deu por satisfeito com a resposta veiculada pela pasta e já tendo transcorrido o prazo legal para que o requerente proponha um recurso. Assim, caso o munícipe não exerça seu direito de manifestação, o pedido é finalizado, sendo este um marco de conclusão do pedido. Portanto, não haverá nenhuma tramitação sistêmica após a finalização do pedido.
+
