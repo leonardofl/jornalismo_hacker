@@ -1,0 +1,1 @@
+Baixar arquivo mês por mês e importar arquivo por arquivo pra base de dados.
