@@ -20,3 +20,8 @@ CREATE TABLE FLIGHTS (
   AIR_TIME REAL,
   DISTANCE REAL
 );
+
+CREATE INDEX flights_carrier ON flights (unique_carrier);
+CREATE INDEX flights_date ON flights (fl_date);
+CREATE INDEX flights_origin ON flights (origin);
+CREATE INDEX flights_dest ON flights (dest);

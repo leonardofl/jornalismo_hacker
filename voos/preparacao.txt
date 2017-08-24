@@ -1,1 +1,6 @@
 Baixar arquivo mês por mês e importar arquivo por arquivo pra base de dados.
+
+Lookup tables importadas (tabela -> lookup table na página):
+* airports -> Origin Airport
+* carriers -> UniqueCarrier
+* cancellation_codes -> CancellationCode
