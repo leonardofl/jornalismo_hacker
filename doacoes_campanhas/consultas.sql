@@ -353,7 +353,8 @@ select * from qtdDoacoes where qtdDoacoes.cpfcnpjdoador in (select cpfcnpjdoador
 59941682000180|1
 61649810000168|1
 
-
-
-
-
+-- as 20% maiores doações
+select siglapartido, valor, nomedoador from doacoes order by valor desc limit round(0.1 * (select count(*) from doacoes));
+-- Temos um problema no limite inferior. Para complementar:
+select min(valor) from (select valor from doacoes order by valor desc limit round(0.1 * (select count(*) from doacoes)));
+select siglapartido, valor, nomedoador from doacoes where valor = (select min(valor) from (select valor from doacoes order by valor desc limit round(0.1 * (select count(*) from doacoes))));
