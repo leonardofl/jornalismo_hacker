@@ -8,10 +8,10 @@ select min(dt_resposta_atendimento), max(dt_resposta_atendimento) from atendimen
 -- Histograma de quantidade de atendimentos por pedido
 select qtd_atendimentos_por_pedido, count(*) as ocorrencias_qtd_atendimentos from
     (select pedido, count(*) as qtd_atendimentos_por_pedido from
-        (select a.cd_pedido as pedido, a.cd_atendimento_pedido as atendimento from atendimentos a, pedidos p 
+        (select a.cd_pedido as pedido, a.cd_atendimento_pedido as atendimento from atendimentos a, pedidos p
         where a.cd_pedido = p.cd_pedido)
     group by pedido)
-group by qtd_atendimentos_por_pedido 
+group by qtd_atendimentos_por_pedido
 order by ocorrencias_qtd_atendimentos desc;
 -- "3","4996"
 -- "6","1103"
@@ -32,18 +32,18 @@ order by ocorrencias_qtd_atendimentos desc;
 
 -- Achando pedidos com 6 atendimentos
 select pedido, count(*) as qtd_atendimentos from
-    (select a.cd_pedido as pedido, a.cd_atendimento_pedido as atendimento from atendimentos a, pedidos p 
+    (select a.cd_pedido as pedido, a.cd_atendimento_pedido as atendimento from atendimentos a, pedidos p
     where a.cd_pedido = p.cd_pedido)
 group by pedido having qtd_atendimentos = 6;
 
 -- Um deles é o 14228. Vamos analisá-lo.
-select p.cd_pedido, p.nome_orgao, p.cd_solicitante, p.dt_abertura_pedido, 
-       a.cd_atendimento_pedido, a.nome_status, a.dt_resposta_atendimento 
-from atendimentos a, pedidos p 
+select p.cd_pedido, p.nome_orgao, p.cd_solicitante, p.dt_abertura_pedido,
+       a.cd_atendimento_pedido, a.nome_status, a.dt_resposta_atendimento
+from atendimentos a, pedidos p
 where a.cd_pedido = p.cd_pedido and p.cd_pedido = 14228
 order by a.dt_resposta_atendimento;
 
--- Descobrindo status de indeferimento 
+-- Descobrindo status de indeferimento
 select distinct cd_status_atendimento_pedido, nome_status from atendimentos;
 select distinct cd_status_atendimento_pedido, nome_status from atendimentos where nome_status like '%indef%';
 -- "4","Pedido indeferido"
@@ -54,7 +54,7 @@ select distinct cd_status_atendimento_pedido, nome_status from atendimentos wher
 
 -- Órgãos com mais pedidos indeferidos (top 10)
 select p.nome_orgao, count(*) as qtd_indeferimentos
-from atendimentos a, pedidos p 
+from atendimentos a, pedidos p
 where a.cd_pedido = p.cd_pedido and cd_status_atendimento_pedido in (4, 36, 19, 32, 42)
 group by p.cd_orgao
 order by qtd_indeferimentos desc limit 10;
@@ -69,5 +69,17 @@ order by qtd_indeferimentos desc limit 10;
 -- "PGM - Procuradoria Geral do Município","55"
 -- "CGM - Controladoria Geral do Município","54"
 
-
-
+--pedidos não atendidos
+SELECT min(dt_resposta_atendimento) FROM atendimentos;
+-- 2016-01-01
+SELECT max(dt_abertura_pedido) FROM pedidos;
+-- 2017-07-05
+-- Ou seja, a base de atendimentos começa em 2016.
+-- Além disso, como os pedidos tem 30 dias para ser atendidos,
+-- e o último pedido é de 2017-07-05, então vamos considerar só como
+-- não-atendidos os pedidos abertos antes de 2017-06-05
+select * from pedidos where cd_pedido not in
+(select distinct p.cd_pedido from pedidos as p, atendimentos as a where a.cd_pedido = p.cd_pedido)
+and dt_abertura_pedido > '2016-01-01' and dt_abertura_pedido < '2017-06-05'
+-- nenhum registro retornado!
+-- ponto para São Paulo ;)

@@ -358,3 +358,6 @@ select siglapartido, valor, nomedoador from doacoes order by valor desc limit ro
 -- Temos um problema no limite inferior. Para complementar:
 select min(valor) from (select valor from doacoes order by valor desc limit round(0.1 * (select count(*) from doacoes)));
 select siglapartido, valor, nomedoador from doacoes where valor = (select min(valor) from (select valor from doacoes order by valor desc limit round(0.1 * (select count(*) from doacoes))));
+
+-- partidos que não receberam da JBS
+select distinct siglapartido from doacoes where siglapartido not in (select distinct siglapartido from doacoes where nomedoador like "%jbs%");
