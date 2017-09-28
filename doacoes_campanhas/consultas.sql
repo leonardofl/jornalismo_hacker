@@ -361,3 +361,6 @@ select siglapartido, valor, nomedoador from doacoes where valor = (select min(va
 
 -- partidos que não receberam da JBS
 select distinct siglapartido from doacoes where siglapartido not in (select distinct siglapartido from doacoes where nomedoador like "%jbs%");
+
+-- doadores das 50 maiores doações ao PT
+select distinct NomeDoador from doacoes where SiglaPartido = 'PT' order by Valor desc limit 50;
