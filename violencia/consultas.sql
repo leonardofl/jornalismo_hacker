@@ -1,6 +1,7 @@
 -- os 10 municípios paulistas com mais de 100000 habitantes com mais homicídios
-
-sqlite> SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem FROM homicidios_jovens, homicidios WHERE homicidios.municipio = homicidios_jovens.municipio AND homicidios.uf = "SP" AND homicidios.populacao > 100000 ORDER BY homicidios.taxa DESC LIMIT 10;
+sqlite> SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem 
+FROM homicidios_jovens, homicidios 
+WHERE homicidios.municipio = homicidios_jovens.municipio AND homicidios.uf = "SP" AND homicidios.populacao > 100000 ORDER BY homicidios.taxa DESC LIMIT 10;
 municipio             uf          populacao   homicidios  taxa        ranking_nacional  taxa_jovem
 --------------------  ----------  ----------  ----------  ----------  ----------------  ----------
 Itapecerica da Serra  SP          156077      75          48.1        300               36.3
@@ -15,8 +16,10 @@ Taubaté              SP          283899      80          28.2        786       
 Hortolândia          SP          198758      55          27.7        802               52.8
 
 -- violência em alguns municípios de interesse
-
-SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem FROM homicidios_jovens, homicidios WHERE homicidios.municipio = homicidios_jovens.municipio AND homicidios.municipio IN ("São Paulo", "Pindamonhangaba", "Taubaté", "Guaratinguetá", "São José dos Campos", "Lorena", "Botucatu", "Sorocaba", "Bauru", "Rancharia", "Presidente Prudente", "Caraguatatuba", "Embu", "Osasco", "Barueri", "Diadema") ORDER BY homicidios.taxa desc;
+SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem 
+FROM homicidios_jovens, homicidios 
+WHERE homicidios.municipio = homicidios_jovens.municipio AND homicidios.municipio IN ("São Paulo", "Pindamonhangaba", "Taubaté", "Guaratinguetá", "São José dos Campos", "Lorena", "Botucatu", "Sorocaba", "Bauru", "Rancharia", "Presidente Prudente", "Caraguatatuba", "Embu", "Osasco", "Barueri", "Diadema") 
+ORDER BY homicidios.taxa desc;
 
 municipio            uf          populacao   homicidios  taxa        ranking_nacional  taxa_jovem
 -------------------  ----------  ----------  ----------  ----------  ----------------  ----------
@@ -38,8 +41,10 @@ São José dos Camp  SP          643603      72          11.2        1851       
 Rancharia            SP          28809       2           6.9         2298              **
 
 -- homicídios nas cidades brasileiras com mais de um milhão de habitantes
-
-SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem FROM homicidios_jovens JOIN homicidios ON homicidios.municipio = homicidios_jovens.municipio WHERE homicidios.populacao >= 1000000 ORDER BY homicidios.taxa desc;
+SELECT homicidios.*, homicidios_jovens.taxa as taxa_jovem 
+FROM homicidios_jovens JOIN homicidios ON homicidios.municipio = homicidios_jovens.municipio 
+WHERE homicidios.populacao >= 1000000 
+ORDER BY homicidios.taxa desc;
 
 municipio   uf          populacao   homicidios  taxa        ranking_nacional  taxa_jovem
 ----------  ----------  ----------  ----------  ----------  ----------------  ----------
@@ -63,9 +68,11 @@ São Paulo  SP          11376685    1752        15.4        1554              28
 Campinas    SP          1098630     156         14.2        1647              26.4   
 
 -- violência por UF
-
-SELECT uf, sum(homicidios) as total_homicidios, sum(populacao) as total_populacao, 1.0*sum(homicidios)/sum(populacao) as taxa_homicidios FROM homicidios GROUP BY uf ORDER BY taxa_homicidios DESC;
-
+SELECT uf, sum(homicidios) as total_homicidios, sum(populacao) as total_populacao, 
+1.0*sum(homicidios)/sum(populacao) as taxa_homicidios 
+FROM homicidios 
+GROUP BY uf 
+ORDER BY taxa_homicidios DESC;
 uf              total_homicidios    total_populacao     taxa_homicidios
 ----------------------------------------------------------------------------
 AL				2046				3165472				0.000646349106863052
@@ -95,5 +102,39 @@ RS				2363				10770603			0.000219393473141662
 PI				544				    3160748				0.000172111158497925
 SP				6314				41901219			0.00015068774013472
 SC				816				    6383286				0.00012783384607865
+
+-- homicidios na maior cidade de cada UF
+select uf, taxa, municipio, max(populacao) from homicidios
+group by uf
+order by taxa desc;
+uf          taxa        municipio          max(populacao)
+----------  ----------  -----------------  --------------
+AL          90.0        Maceió             953393        
+CE          76.8        Fortaleza          2500194       
+PB          76.5        João Pessoa        742478        
+MA          62.6        São Luís           1039610       
+BA          60.6        Salvador           2710968       
+SE          59.7        Aracaju            587701        
+AM          56.5        Manaus             1861838       
+RN          55.8        Natal              817590        
+GO          55.4        Goiânia            1333767       
+PE          52.0        Recife             1555039       
+ES          49.2        Vila Velha         424948        
+PA          45.6        Belém              1410430       
+RO          44.7        Porto Velho        442701        
+MT          44.0        Cuiabá             561329        
+RS          42.4        Porto Alegre       1416714       
+PR          41.8        Curitiba           1776761       
+PI          41.1        Teresina           830231        
+MG          40.6        Belo Horizonte     2395785       
+DF          38.9        Brasília           2648532       
+AP          36.8        Macapá             415554        
+AC          33.0        Rio Branco         348354        
+RR          27.9        Boa Vista          296959        
+TO          25.6        Palmas             242070        
+MS          22.6        Campo Grande       805397        
+RJ          21.5        Rio de Janeiro     6390290       
+SC          16.3        Joinville          526338        
+SP          15.4        São Paulo          11376685
 
 
