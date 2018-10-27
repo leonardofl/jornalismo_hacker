@@ -43,32 +43,32 @@ Os marcados com "*" são os escolhidos
 
 ## Gerando a base
 
-./zonas_2018_to_csv.sh
+        ./zonas_2018_to_csv.sh
 
-sqlite3 zonas-eleitorais-primeiro-turno-2018.sqlite
+        sqlite3 zonas-eleitorais-primeiro-turno-2018.sqlite
 
-CREATE TABLE zonas2018 (
-    SG_UF,
-    CD_MUNICIPIO INTEGER,
-    NM_MUNICIPIO,
-    NR_ZONA INTEGER,
-    CD_CARGO INTEGER,
-    DS_CARGO,
-    QT_APTOS INTEGER,
-    QT_APTOS_TOT INTEGER,
-    QT_COMPARECIMENTO INTEGER,
-    QT_ABSTENCOES INTEGER,
-    ST_VOTO_EM_TRANSITO,
-    QT_VOTOS_NOMINAIS INTEGER,
-    QT_VOTOS_BRANCOS INTEGER,
-    QT_VOTOS_NULOS INTEGER,
-    QT_VOTOS_LEGENDA INTEGER,
-    QT_VOTOS_PENDENTES INTEGER,
-    QT_VOTOS_ANULADOS INTEGER
-);
+        CREATE TABLE zonas2018 (
+            SG_UF,
+            CD_MUNICIPIO INTEGER,
+            NM_MUNICIPIO,
+            NR_ZONA INTEGER,
+            CD_CARGO INTEGER,
+            DS_CARGO,
+            QT_APTOS INTEGER,
+            QT_APTOS_TOT INTEGER,
+            QT_COMPARECIMENTO INTEGER,
+            QT_ABSTENCOES INTEGER,
+            ST_VOTO_EM_TRANSITO,
+            QT_VOTOS_NOMINAIS INTEGER,
+            QT_VOTOS_BRANCOS INTEGER,
+            QT_VOTOS_NULOS INTEGER,
+            QT_VOTOS_LEGENDA INTEGER,
+            QT_VOTOS_PENDENTES INTEGER,
+            QT_VOTOS_ANULADOS INTEGER
+        );
 
-.separator ;
-.import zonas2018.csv zonas2018
+        .separator ;
+        .import zonas2018.csv zonas2018
 
 
 
@@ -119,38 +119,38 @@ Os marcados com "*" são os escolhidos
 
 ## Gerando a base
 
-./candidatos_2018_to_csv.sh
+        ./candidatos_2018_to_csv.sh
 
-sqlite3 candidatos-primeiro-turno-2018.sqlite
+        sqlite3 candidatos-primeiro-turno-2018.sqlite
 
-CREATE TABLE candidatos2018 (
-    SG_UF,
-    CD_MUNICIPIO INTEGER,
-    NM_MUNICIPIO,
-    NR_ZONA INTEGER,
-    CD_CARGO INTEGER,
-    DS_CARGO,
-    SQ_CANDIDATO INTEGER,
-    NR_CANDIDATO INTEGER,
-    NM_CANDIDATO,
-    NM_URNA_CANDIDATO,
-    CD_SITUACAO_CANDIDATURA INTEGER,
-    DS_SITUACAO_CANDIDATURA,
-    CD_DETALHE_SITUACAO_CAND INTEGER,
-    DS_DETALHE_SITUACAO_CAND,
-    TP_AGREMIACAO,
-    NR_PARTIDO INTEGER,
-    SG_PARTIDO,
-    SQ_COLIGACAO INTEGER,
-    DS_COMPOSICAO_COLIGACAO,
-    CD_SIT_TOT_TURNO INTEGER,
-    DS_SIT_TOT_TURNO,
-    ST_VOTO_EM_TRANSITO,
-    QT_VOTOS_NOMINAIS INTEGER
-);
+        CREATE TABLE candidatos2018 (
+            SG_UF,
+            CD_MUNICIPIO INTEGER,
+            NM_MUNICIPIO,
+            NR_ZONA INTEGER,
+            CD_CARGO INTEGER,
+            DS_CARGO,
+            SQ_CANDIDATO INTEGER,
+            NR_CANDIDATO INTEGER,
+            NM_CANDIDATO,
+            NM_URNA_CANDIDATO,
+            CD_SITUACAO_CANDIDATURA INTEGER,
+            DS_SITUACAO_CANDIDATURA,
+            CD_DETALHE_SITUACAO_CAND INTEGER,
+            DS_DETALHE_SITUACAO_CAND,
+            TP_AGREMIACAO,
+            NR_PARTIDO INTEGER,
+            SG_PARTIDO,
+            SQ_COLIGACAO INTEGER,
+            DS_COMPOSICAO_COLIGACAO,
+            CD_SIT_TOT_TURNO INTEGER,
+            DS_SIT_TOT_TURNO,
+            ST_VOTO_EM_TRANSITO,
+            QT_VOTOS_NOMINAIS INTEGER
+        );
 
-.separator ;
-.import candidatos2018.csv candidatos2018
+        .separator ;
+        .import candidatos2018.csv candidatos2018
 
 
 
