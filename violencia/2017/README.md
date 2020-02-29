@@ -6,3 +6,8 @@ Encontrado em
 
 https://infograficos.gazetadopovo.com.br/seguranca-publica/atlas-da-violencia-2019-por-municipios/
 
+## Importação dos dados
+
+.separator ;
+.import 3-homicidios.csv homicidios
+
