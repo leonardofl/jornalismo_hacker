@@ -8,6 +8,15 @@ https://infograficos.gazetadopovo.com.br/seguranca-publica/atlas-da-violencia-20
 
 ## Importação dos dados
 
+CREATE TABLE homicidios(
+  uf TEXT,
+  municipio TEXT,
+  taxa REAL,
+  homicidios INT,
+  população INT
+);
+
+
 .separator ;
 .import 3-homicidios.csv homicidios
 
