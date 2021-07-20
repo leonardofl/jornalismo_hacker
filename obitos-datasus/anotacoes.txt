@@ -1,0 +1,27 @@
+Campos interessantes de óbitos
+
+* UF
+* idade
+* sexo
+* cor
+* escolaridade
+* ocupação(AGENTE DE POLICIA)
+* CAUSABAS: causa (cid)
+  ex: acidentes de trânsito, Infecc p/coronavirus
+  comparar evolução acidentes trânsito vs covid
+* CIRCOBITO suicídio, homicídio, acidente, outros
+  pra cruzar com raça ou polícia
+* ACIDTRAB
+  Quais ocupações?
+
+Filtrar tudo por tipo não fetal
+
+
+
+* analisar evolução mortes covid vs acidentes de trânsito
+* causa morte por UF
+* causa morte / CIRCOBITO por idade x cor x escolaridade x gênero // recorte social
+* causa morte (se acidente de trabalho) por ocupação
+* causa morte / CIRCOBITO pra agentes de polícia
+
+* CIRCOBITO suicídio, homicídio, acidente, outros
