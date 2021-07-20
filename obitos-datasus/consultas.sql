@@ -163,8 +163,30 @@ NA
 2000-12-31
 
 -- top causas morte por recorte social
-select SEXO, RACACOR, ESC, count(*) as qtd from obitos2019 group by SEXO, RACACOR, ESC;
-
+> select SEXO, RACACOR, ESC, count(*) as qtd from obitos2019 group by SEXO, RACACOR, ESC;
+> create temp view grupos as select SEXO, RACACOR, CAUSABAS, count(*) as qtd from obitos2019 where TIPOBITO = 'Não Fetal' group by SEXO, RACACOR, ESC;
+> select SEXO, RACACOR, CAUSABAS, max(qtd) from grupos group by SEXO, RACACOR;
+> select SEXO, RACACOR, cid.DESCR, max(qtd) from grupos join cid on grupos.CAUSABAS = cid.CID10 group by SEXO, RACACOR;
+> create temp view grupos2 as select SEXO, RACACOR, ESC, CAUSABAS, count(*) as qtd from obitos2019 where TIPOBITO = 'Não Fetal' group by SEXO, RACACOR, ESC;
+> select SEXO, RACACOR, ESC, cid.DESCR, max(qtd) from grupos2 join cid on grupos2.CAUSABAS = cid.CID10 group by SEXO, RACACOR, ESC;
+> select SEXO, RACACOR, ESC, cid.DESCR, max(qtd) from grupos2 join cid on grupos2.CAUSABAS = cid.CID10 where SEXO = 'Masculino' and RACACOR = 'Preta' group by SEXO, RACACOR, ESC;
+SEXO|RACACOR|ESC|DESCR|max(qtd)
+Masculino|Preta|1 a 3 anos|C73   Neopl malig da gland tireoide|7841
+Masculino|Preta|12 anos ou mais|V29.9 Motociclista acid trans NE|514
+Masculino|Preta|4 a 7 anos|B21.3 Doenc p/HIV out neop mal tec linf hemat corr|5262
+Masculino|Preta|8 a 11 anos|X99.9 Local NE|1678
+Masculino|Preta|9 a 11 anos|I21.9 Infarto agudo do miocardio NE|7
+Masculino|Preta|NA|C61   Neopl malig da prostata|13970
+Masculino|Preta|Nenhuma|V48.9 Ocupante NE acid trans|7587
+> select SEXO, RACACOR, ESC, cid.DESCR, max(qtd) from grupos2 join cid on grupos2.CAUSABAS = cid.CID10 where SEXO = 'Masculino' and RACACOR = 'Branca' group by SEXO, RACACOR, ESC;
+SEXO|RACACOR|ESC|DESCR|max(qtd)
+Masculino|Branca|1 a 3 anos|K63.1 Perfuracao do intestino|59993
+Masculino|Branca|12 anos ou mais|E22.2 Sindr secrecao inadeq hormonio antidiuretico|13977
+Masculino|Branca|4 a 7 anos|I63.1 Infarto cerebr dev embol arterias pre-cerebr|44570
+Masculino|Branca|8 a 11 anos|C92.0 Leucemia mieloide aguda|19388
+Masculino|Branca|9 a 11 anos|C34.9 Bronquios ou pulmoes NE|27
+Masculino|Branca|NA|P21.9 Asfixia ao nascer NE|107637
+Masculino|Branca|Nenhuma|I21.9 Infarto agudo do miocardio NE|39218
 
 
 
