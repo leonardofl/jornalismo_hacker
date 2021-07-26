@@ -18,5 +18,6 @@ CREATE TABLE homicidios(
 
 
 .separator ;
+.headers on
 .import 3-homicidios.csv homicidios
 
