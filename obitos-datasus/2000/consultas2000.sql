@@ -1,3 +1,5 @@
+-- obs: tabela se chama obitos2019, mas dados são de 2000
+
 -- circunstância de mortes 
 > select CIRCOBITO, count(*) from obitos2019 group by CIRCOBITO order by count(*) desc;
 CIRCOBITO,count(*)

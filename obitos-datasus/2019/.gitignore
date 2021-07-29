@@ -1,4 +1,5 @@
 *csv
+!head-obitos.csv
 *sqlite
 .~lock.*
 *.zip

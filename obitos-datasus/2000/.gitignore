@@ -1,0 +1,5 @@
+*csv
+!head-obitos2019.csv
+!head-obitos2000.csv
+*sqlite
+.~lock.*
