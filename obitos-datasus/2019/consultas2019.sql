@@ -1,3 +1,6 @@
+-------------------------------------
+-- basicão
+
 -- total óbitos
 select count(*) from obitos2019
 1349801
@@ -6,58 +9,36 @@ select round(1.0 * 552000 / count(*), 1) * 100 from obitos2019
 40.0 -- ie, só de covid morreu mais de 40% da quantidade total de mortes em 2019
 -- dá uma boa dimensão do tamanho da tragédia
 
--- circunstância de mortes 
+-- select alguns campos e limit
+select TIPOBITO, SEXO, RACACOR, ESC, OCUP, CAUSABAS, CIRCOBITO, ACIDTRAB from obitos2019 limit 10;
+
+-- distinct (explorando domínio)
+select distinct TIPOBITO from obitos2019;
+select distinct ESC from obitos2019;
+select distinct CIRCOBITO from obitos2019;
+select distinct ACIDTRAB from obitos2019;
+
+-- where, min, max
+> select min(DTOBITO) from obitos2019;
+2019-01-01
+> select max(DTOBITO) from obitos2019;
+2019-12-31
+> select COUNT(*) from obitos2019 where DTOBITO >= '2019-07-01';
+684125
+> select COUNT(*) from obitos2019 where DTOBITO < '2019-07-01';
+665676
+
+-- circunstância de mortes (group by)
 > select CIRCOBITO, count(*) from obitos2019 group by CIRCOBITO order by count(*) desc;
 "NA"	"1230542"
 "Acidente"	"60215"
 "Homicídio"	"42039"
 "Suicídio"	"13009"
 "Outro"	"3996"
+-------------------------------------
 
--- ocupações
-select distinct OCUP from obitos2019 order by OCUP;
-"Abatedor"
-"Acabador de calçados"
-"Acabador de embalagens (flexíveis e cartotécnicas)"
-...
 
--- ocupação policial
-select distinct OCUP from obitos2019 where OCUP like '%POLICIA%' or OCUP like '%POLÍCIA%'  order by OCUP;
-"Papiloscopista policial"
-"Policial rodoviário federal"
-"Sargento da policia militar"
-"Subtenente da policia militar"
--- parece meio ruim o dado... e os soldados etc?
-
--- circunstância de mortes de policiais militares
-> select CIRCOBITO, count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO order by count(*) desc;
-"NA"	"463"
-"Acidente"	"33"
-"Homicídio"	"19"
-"Suicídio"	"4"
-
--- porcentagem global de homicídios
-> select round(1.0 * (select count(*) from obitos2019 group by CIRCOBITO having CIRCOBITO = "Homicídio") / (select count(*) from obitos2019) * 100, 1) as percent;
-3.1
--- quanto será que é em outros países?
--- qual seria a evolução histórica no Brasil?
-
--- porcentagem de homicídios para policiais militares
-> select round(1.0 * (select count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO having CIRCOBITO = "Homicídio") / (select count(*) from obitos2019 where OCUP like '%policia militar') * 100, 1) as percent;
-3.7
--- similar à taxa global de homicídios
-
--- porcentagem global de suicídios
-> select round(1.0 * (select count(*) from obitos2019 group by CIRCOBITO having CIRCOBITO = "Suicídio") / (select count(*) from obitos2019) * 100, 1) as percent;
-1.0
-
--- porcentagem de suicídios para agentes policiais
-> select round(1.0 * (select count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO having CIRCOBITO = "Suicídio") / (select count(*) from obitos2019 where OCUP like '%policia militar') * 100, 1) as percent;
-0.8
--- similar à taxa global de suicídios
-
--- Contudo, obs: se policial envelhece, ele deixa de ser policial e vai morrer como APOSENTADO
-
+-------------------------------------------
 -- Ocupações com mais acidentes de trabalho
 > select OCUP, count(*) as qtd from obitos2019 where ACIDTRAB = 'Sim' group by OCUP order by qtd desc limit 10;
 "NA"	"440"
@@ -71,10 +52,15 @@ select distinct OCUP from obitos2019 where OCUP like '%POLICIA%' or OCUP like '%
 "Aposentado/Pensionista"	"70"
 "Eletricista de instalações"	"62"
 -- obs: em 2000 o primeiro lugar era CARRETEIRO; ou seja, isso não mudou
-
 -- Buscado por carreteiro no Google...
 -- "Um Motorista Carreteiro ganha em média R$ 1.866,02 no mercado de trabalho brasileiro para uma jornada de trabalho de 44 horas semanais"
 -- "Principais fatores de desinteresse da profissão de carreteiro"
+-------------------------------------------
+
+
+
+--------------------------------------------
+-- Explorando causas dos óbitos (ex: acidentes de trânsito)
 
 -- Buscando por cids de acidente de trânsito
 > select DESCR from cid where DESCR like '%acid%';
@@ -82,7 +68,6 @@ select distinct OCUP from obitos2019 where OCUP like '%POLICIA%' or OCUP like '%
 "V20.0 Condutor acid n-trans" -- que será "n-trans"? vou considerar
 "V20.4 Condutor acid trans"
 ...
-
 
 > select count(*) from cid where DESCR like '%acid%trans%';
 622
@@ -150,17 +135,22 @@ select round(1.0 * 30715 / 552, 1);
 > select round(1.0 * (select count(*) from obitos2019 where CAUSABAS in (select CID10 from cid10_acid_trans)) / (select count(*) from obitos2019) * 100, 1);
 2.3
 
--- porcentagem dos óbitos que é acidente de covid
+-- porcentagem dos óbitos que é de covid
 > create temp view cid10_covid as select CID10 from cid where DESCR like '%coronavirus%';
 > select * from cid10_covid;
 > select count(*) from obitos2019 where CAUSABAS in (select CID10 from cid10_covid);
 0
+--------------------------------------------
 
-> select min(DTOBITO) from obitos2019;
-2019-01-01
-> select max(DTOBITO) from obitos2019;
-2019-12-31
 
+
+
+
+
+
+
+
+--------------------------------------
 -- top causas morte por recorte social
 > select SEXO, RACACOR, ESC, count(*) as qtd from obitos2019 where TIPOBITO = 'Não Fetal' group by SEXO, RACACOR, ESC;
 > create temp view grupos as select SEXO, RACACOR, CAUSABAS, count(*) as qtd from obitos2019 where TIPOBITO = 'Não Fetal' group by SEXO, RACACOR, ESC;
@@ -182,6 +172,61 @@ select round(1.0 * 30715 / 552, 1);
 "Masculino"	"Branca"	"8 a 11 anos"	"C34.9 Bronquios ou pulmoes NE"	"71395"
 "Masculino"	"Branca"	"NA"	"J44.0 Doen pulm obs cron c/inf resp ag tr resp inf"	"62870"
 "Masculino"	"Branca"	"Nenhuma"	"I21.9 Infarto agudo do miocardio NE"	"33059"
+--------------------------------------
+
+
+
+----------------------------------
+-- polícia
+
+-- ocupações
+select distinct OCUP from obitos2019 order by OCUP;
+"Abatedor"
+"Acabador de calçados"
+"Acabador de embalagens (flexíveis e cartotécnicas)"
+...
+
+-- ocupação policial
+select distinct OCUP from obitos2019 where OCUP like '%POLICIA%' or OCUP like '%POLÍCIA%'  order by OCUP;
+"Papiloscopista policial"
+"Policial rodoviário federal"
+"Sargento da policia militar"
+"Subtenente da policia militar"
+-- parece meio ruim o dado... e os soldados etc?
+
+-- circunstância de mortes de policiais militares
+> select CIRCOBITO, count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO order by count(*) desc;
+"NA"	"463"
+"Acidente"	"33"
+"Homicídio"	"19"
+"Suicídio"	"4"
+
+-- porcentagem global de homicídios
+> select round(1.0 * (select count(*) from obitos2019 group by CIRCOBITO having CIRCOBITO = "Homicídio") / (select count(*) from obitos2019) * 100, 1) as percent;
+3.1
+-- quanto será que é em outros países?
+-- qual seria a evolução histórica no Brasil?
+
+-- porcentagem de homicídios para policiais militares
+> select round(1.0 * (select count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO having CIRCOBITO = "Homicídio") / (select count(*) from obitos2019 where OCUP like '%policia militar') * 100, 1) as percent;
+3.7
+-- similar à taxa global de homicídios
+
+-- porcentagem global de suicídios
+> select round(1.0 * (select count(*) from obitos2019 group by CIRCOBITO having CIRCOBITO = "Suicídio") / (select count(*) from obitos2019) * 100, 1) as percent;
+1.0
+
+-- porcentagem de suicídios para agentes policiais
+> select round(1.0 * (select count(*) from obitos2019 where OCUP like '%policia militar' group by CIRCOBITO having CIRCOBITO = "Suicídio") / (select count(*) from obitos2019 where OCUP like '%policia militar') * 100, 1) as percent;
+0.8
+-- similar à taxa global de suicídios
+
+-- Contudo, obs: se policial envelhece, ele deixa de ser policial e vai morrer como APOSENTADO
+----------------------------------
+
+
+
+
 
 
 
